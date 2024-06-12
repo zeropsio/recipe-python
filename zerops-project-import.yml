@@ -7,7 +7,7 @@ services:
   - hostname: api
     type: python@3.12
     enableSubdomainAccess: true
-    buildFromGit: https://github.com/krls2020/recipe-python
+    buildFromGit: https://github.com/zeropsio/recipe-python
 
   - hostname: db
     type: postgresql@16
