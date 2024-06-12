@@ -1,0 +1,15 @@
+project:
+  name: recipe-python
+  tags:
+    - zerops-recipe
+
+services:
+  - hostname: api
+    type: python@3.12
+    enableSubdomainAccess: true
+    buildFromGit: https://github.com/krls2020/recipe-python
+
+  - hostname: db
+    type: postgresql@16
+    mode: NON_HA
+    priority: 1

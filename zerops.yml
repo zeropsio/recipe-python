@@ -1,0 +1,26 @@
+zerops:
+  - setup: api
+    build:
+      base: python@3.12
+      deploy:
+        - app.py
+      addToRunPrepare:
+        - requirements.txt
+    run:
+      base: python@3.12
+      prepareCommands:
+        - python3 -m pip install --ignore-installed -r requirements.txt
+      start: python3 app.py
+      ports:
+        - port: 8000
+          httpSupport: true
+      envVariables:
+        DB_NAME: db
+        DB_HOST: ${db_hostname}
+        DB_PORT: ${db_port}
+        DB_USER: ${db_user}
+        DB_PASS: ${db_password}
+      healthCheck:
+        httpGet:
+          port: 8000
+          path: /status
