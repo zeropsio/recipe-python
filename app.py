@@ -53,7 +53,11 @@ def add_entry():
     logger.error("This is an error message")
     logger.log(logging.INFO, "This is a standard log message using the log method")
 
-    return jsonify(message="Entry added successfully.", id=entry_id, data=random_data)
+    return jsonify(
+        message="This is a simple, basic Python application running on Zerops.io, each request adds an entry to the PostgreSQL database and returns a count. See the source repository (https://github.com/zeropsio/recipe-python) for more information.",
+        id=entry_id,
+        data=random_data
+    )
 
 @app.route('/status')
 def status_check():
